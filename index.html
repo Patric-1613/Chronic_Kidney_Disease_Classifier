@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Forest Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-row {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-4">Logistic Regression Prediction (Top 10 Features)</h2>
+        <form method="POST" action="/getprediction">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="hemo">Hemoglobin (hemo):</label>
+                    <input type="text" class="form-control" id="hemo" name="hemo" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sc">Serum Creatinine (sc):</label>
+                    <input type="text" class="form-control" id="sc" name="sc" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="sg">Specific Gravity (sg):</label>
+                    <input type="text" class="form-control" id="sg" name="sg" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="al">Albumin (al):</label>
+                    <input type="text" class="form-control" id="al" name="al" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="rbc">Red Blood Cells (rbc):</label>
+                    <input type="text" class="form-control" id="rbc" name="rbc" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="htn">Hypertension (htn):</label>
+                    <input type="text" class="form-control" id="htn" name="htn" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dm">Diabetes Mellitus (dm):</label>
+                    <input type="text" class="form-control" id="dm" name="dm" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="bu">Blood Urea (bu):</label>
+                    <input type="text" class="form-control" id="bu" name="bu" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="sod">Sodium (sod):</label>
+                    <input type="text" class="form-control" id="sod" name="sod" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="bgr">Blood Glucose Random (bgr):</label>
+                    <input type="text" class="form-control" id="bgr" name="bgr" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        <br>
+        {% if output %}
+            <div class="alert alert-info">
+                {{ output }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
